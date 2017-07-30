@@ -13,11 +13,10 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-	ofDrawCircle(ofGetWidth() / 2, ofGetHeight() / 2, 50);
+	ofDrawCircle(ofGetWidth() / 2, (ofGetHeight() / 2) -100, 50);
 	ofPoint screenPos;
-	screenPos.x = ofGetHeight() - (((tracker.trackerPos.z + 10) * 100) - 500);
-	screenPos.y = ofGetHeight() - (((tracker.trackerPos.y + 10) * 100) - 500);
-	//cout << screenPos << endl;
+	screenPos.x = ofMap(tracker.trackerPos.z, 3, -3, 0, ofGetWidth());
+	screenPos.y = ofMap(tracker.trackerPos.y, 3, -3, 0, ofGetHeight());
 	ofDrawCircle(screenPos.x,screenPos.y, 50);
 }
 
